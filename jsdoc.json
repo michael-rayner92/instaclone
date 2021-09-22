@@ -1,0 +1,16 @@
+{
+  "source": {
+    "include": ["./src"],
+    "includePattern": "\\.(js|jsx)$",
+    "excludePattern": "(^|\\/|\\\\)_"
+  },
+  "plugins": ["plugins/markdown"],
+  "opts": {
+    "recurse": true,
+    "verbose": true,
+    "encoding": "utf8",
+    "destination": "docs/",
+    "tutorials": "tutorials"
+  },
+  "tags": { "allowUnknownTags": [] }
+}
