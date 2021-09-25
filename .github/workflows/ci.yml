@@ -24,4 +24,4 @@ jobs:
       - name: Run ESLint
         run: yarn ci:lint
       - name: Bundle and Output
-        run: yarn build --if-present
+        run: yarn build
