@@ -59,6 +59,6 @@
     "tailwindcss": "^2.2.15"
   },
   "engines": {
-    "node": "16.8.x"
+    "node": "14.x"
   }
 }
