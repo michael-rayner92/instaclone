@@ -2,6 +2,10 @@ module.exports = {
   future: {
     removeDeprecatedGapUtilities: true
   },
+  purge: {
+    enabled: true,
+    content: ['./src/**/*.js', './src/**/**/*.']
+  },
   theme: {
     fill: theme => ({
       red: theme('colors.red.primary')

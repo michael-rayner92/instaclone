@@ -25,3 +25,5 @@ jobs:
         run: yarn ci:lint
       - name: Bundle and Output
         run: yarn build
+      - name: Lighthouse Benchmarks
+        run: yarn ci:lighthouse
