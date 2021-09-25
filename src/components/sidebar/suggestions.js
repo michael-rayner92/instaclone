@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Skeleton from 'react-loading-skeleton';
@@ -14,9 +15,8 @@ export default function Suggestions({ userId, following, loggedInUserDocId }) {
     }
 
     if (userId) suggestedProfiles();
-  }, [userId]);
+  }, [userId, following]);
 
-  // eslint-disable-next-line no-nested-ternary
   return !profiles ? (
     <Skeleton count={10} height={150} className="mt-5" />
   ) : profiles.length ? (
