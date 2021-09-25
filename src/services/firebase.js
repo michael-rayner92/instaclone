@@ -26,6 +26,45 @@ export async function doesUsernameExist(username) {
 }
 
 /**
+ * Query firestore for a user by username
+ * @async
+ * @param {string} username
+ * @returns user data or false if not found
+ */
+export async function getUserByUsername(username) {
+  const result = await firebase
+    .firestore()
+    .collection('users')
+    .where('username', '==', username)
+    .get();
+
+  return result.docs.map(item => ({
+    ...item.data(),
+    docId: item.id
+  }));
+}
+
+/**
+ * Query firestore to get a user's photos by username
+ * @async
+ * @param {string} username
+ * @returns Array  of user's photos
+ */
+export async function getUserPhotosByUsername(username) {
+  const [user] = await getUserByUsername(username);
+  const result = await firebase
+    .firestore()
+    .collection('photos')
+    .where('userId', '==', user.userId)
+    .get();
+
+  return result.docs.map(item => ({
+    ...item.data(),
+    docId: item.id
+  }));
+}
+
+/**
  * Get user from the firestore where userId === userId (passed from the auth context)
  * @async
  * @param {string} userId firestore user.uid
@@ -131,4 +170,47 @@ export async function getPhotos(userId, following) {
   );
 
   return photosWithUserDetails;
+}
+
+/**
+ * Query firestore to see if logged in user is following a given profile
+ * @async
+ * @param {string} loggedInUserUsername username to check is a follower
+ * @param {string} profileUserId profile userId of queried profile
+ * @return Boolean value of logged in user's following status
+ */
+export async function isUserFollowingProfile(loggedInUserUsername, profileUserId) {
+  const result = await firebase
+    .firestore()
+    .collection('users')
+    .where('username', '==', loggedInUserUsername)
+    .where('following', 'array-contains', profileUserId)
+    .get();
+
+  const [response = {}] = result.docs.map(item => ({
+    ...item.data(),
+    docId: item.id
+  }));
+
+  return !!response.userId;
+}
+
+/**
+ * Follow or unfollow an account
+ * @async
+ * @param {string} isFollowingProfile Profile to follow/unfollow's doc id
+ * @param {string} activeUserDocId Logged in user's doc id
+ * @param {string} profileDocId Logged in user's user id
+ * @param {string} profileUserId User id of the profile to be followed/unfollowed
+ * @param {string} followingUserId Current following state
+ */
+export async function toggleFollow(
+  isFollowingProfile,
+  activeUserDocId,
+  profileDocId,
+  profileUserId,
+  followingUserId
+) {
+  await updateLoggedInUserFollowing(activeUserDocId, profileUserId, isFollowingProfile);
+  await updateFollowedUserFollowers(profileDocId, followingUserId, isFollowingProfile);
 }
