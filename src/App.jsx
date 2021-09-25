@@ -16,8 +16,6 @@ const Profile = lazy(() => import('./pages/profile'));
 export default function App() {
   const { user } = useAuthListener();
 
-  console.log('NODE_ENV: ', process.env.NODE_ENV);
-
   return (
     <UserContext.Provider value={{ user }}>
       <Router>
