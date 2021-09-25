@@ -17,7 +17,7 @@
     "web-vitals": "^1.1.0"
   },
   "scripts": {
-    "lint": "eslint src",
+    "ci:lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "build:css": "postcss src/styles/tailwind.css -o src/styles/app.css",
     "watch:css": "postcss src/styles/tailwind.css -o src/styles/app.css --watch",
@@ -28,12 +28,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "docs": "jsdoc -c jsdoc.json"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
@@ -63,5 +57,8 @@
     "postcss-cli": "^8.3.1",
     "prettier": "^2.2.1",
     "tailwindcss": "^2.2.15"
+  },
+  "engines": {
+    "node": "16.8.x"
   }
 }

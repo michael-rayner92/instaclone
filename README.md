@@ -6,8 +6,6 @@
 
 ## Features 🚀
 
----
-
 - React
 - Firebase (Firestore/auth)
 - Tailwind CSS
@@ -20,8 +18,6 @@
 <br />
 
 ## Course Links 🔗
-
----
 
 - [YouTube Content](https://www.youtube.com/watch?v=AKeaaa8yAAk)
 
