@@ -18,7 +18,6 @@
   },
   "scripts": {
     "ci:lint": "eslint src",
-    "ci:lighthouse": "yarn run lhci autorun",
     "lint:fix": "eslint src --fix",
     "build:css": "postcss src/styles/tailwind.css -o src/styles/app.css",
     "watch:css": "postcss src/styles/tailwind.css -o src/styles/app.css --watch",

@@ -26,6 +26,8 @@ jobs:
       - name: Bundle and Output
         run: yarn build
       - name: Lighthouse Benchmarks
-        run: yarn ci:lighthouse
+        run: |
+          yarn global add @lhci/cli@0.6.x
+          lhci autorun
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
