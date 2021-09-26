@@ -2,11 +2,13 @@ import { useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import FirebaseContext from '../context/firebase';
 import UserContext from '../context/user';
+import useUser from '../hooks/use-user';
 import * as ROUTES from '../constants/routes';
 
 export default function Header() {
+  const { user: loggedInUser } = useContext(UserContext);
+  const { user } = useUser(loggedInUser?.uid);
   const { firebase } = useContext(FirebaseContext);
-  const { user } = useContext(UserContext);
 
   const history = useHistory();
 
