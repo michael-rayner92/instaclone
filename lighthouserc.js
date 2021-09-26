@@ -14,8 +14,10 @@ module.exports = {
       }
     },
     collect: {
-      url: ['http://127.0.0.1:4000'],
-      startServerCommand: 'http-server ./build -p 3000 -g'
+      url: ['http://127.0.0.1:3000'],
+      staticDistDir: './build',
+      startServerCommand: 'http-server ./build -p 3000 -g',
+      isSinglePageApplication: true
     }
   }
 };
