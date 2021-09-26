@@ -12,12 +12,6 @@ module.exports = {
         'categories:performance': ['error', { minScore: 0.9 }],
         'categories:seo': ['error', { minScore: 0.9 }]
       }
-    },
-    collect: {
-      url: ['http://127.0.0.1:3000'],
-      staticDistDir: './build',
-      startServerCommand: 'http-server ./build -p 3000 -g',
-      isSinglePageApplication: true
     }
   }
 };
