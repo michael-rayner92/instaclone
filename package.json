@@ -6,7 +6,6 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.1",
-    "@lhci/cli": "^0.8.1",
     "date-fns": "^2.19.0",
     "firebase": "^8.2.10",
     "prop-types": "^15.7.2",
@@ -44,6 +43,7 @@
     ]
   },
   "devDependencies": {
+    "@lhci/cli": "^0.8.1",
     "autoprefixer": "^10.3.4",
     "babel-eslint": "^10.1.0",
     "eslint-config-airbnb": "^18.2.1",
