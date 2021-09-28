@@ -47,7 +47,7 @@
     "react-scripts:dist": "react-scripts build",
     "start": "run-p watch:css react-scripts:start",
     "build": "run-s build:css react-scripts:dist",
-    "test": "react-scripts test",
+    "test": "react-scripts test --coverage --watchAll",
     "eject": "react-scripts eject",
     "docs": "jsdoc -c jsdoc.json"
   },
