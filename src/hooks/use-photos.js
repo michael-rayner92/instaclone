@@ -17,7 +17,7 @@ export default function usePhotos(user) {
     }
 
     getTimelinePhotos();
-  }, [user.following, user.userId]);
+  }, [user]);
 
   return { photos };
 }

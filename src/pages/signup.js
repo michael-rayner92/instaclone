@@ -71,7 +71,11 @@ export default function SignUp() {
             <img src="/images/logo.png" alt="Instagram" className="mt-2 w-6/12 mb-4" />
           </h1>
 
-          {error && <p className="mb-4 text-xs text-red-primary">{error}</p>}
+          {error && (
+            <p className="mb-4 text-xs text-red-primary" data-testid="error">
+              {error}
+            </p>
+          )}
 
           <form onSubmit={handleSignup} method="POST">
             <input

@@ -49,7 +49,7 @@ export default function Header({
         {profileUsername ? (
           <img
             className="rounded-full h-40 w-40 flex"
-            alt={`${profileUsername} profile avatar`}
+            alt={`${profileUsername}'s profile avatar`}
             src={`/images/avatars/${profileUsername}.jpg`}
           />
         ) : (
@@ -82,7 +82,7 @@ export default function Header({
               <p className="mr-10">
                 <span className="font-bold">{photosCount}</span>
                 {` `}
-                {photosCount > 0 ? 'photos' : 'photo'}
+                {photosCount === 1 ? 'photo' : 'photos'}
               </p>
               <p className="mr-10">
                 <span className="font-bold">{followerCount}</span>

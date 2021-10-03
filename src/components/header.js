@@ -46,6 +46,7 @@ export default function Header() {
                 <button
                   type="button"
                   title="Sign Out"
+                  data-testid="sign-out"
                   onClick={() => {
                     firebase.auth().signOut();
                     history.push(ROUTES.LOGIN);
@@ -78,7 +79,7 @@ export default function Header() {
                     <img
                       className="rounded-full h-8 w-8 flex"
                       src={`/images/avatars/${user?.username}.jpg`}
-                      alt={`${user?.username} profile avatar`}
+                      alt={`${user?.username}'s profile avatar`}
                     />
                   </Link>
                 </div>

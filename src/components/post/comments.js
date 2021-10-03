@@ -13,11 +13,11 @@ export default function Comments({ docId, comments: allComments, posted, comment
         {comments.length >= 3 && (
           <p className="text-sm text-gray-base mb-1 cursor-pointer">View all comments</p>
         )}
-        {comments.slice(0, 3).map(item => (
+        {comments.slice(0, 3).map((item, index) => (
           <p key={`${item.comment}-${item.displayName}`} className="mb-1">
             <Link to={`/p/${item.displayName}`}>
               <span className="mr-1 font-bold">{item.displayName}</span>
-              <span>{item.comment}</span>
+              <span data-testid={`post-${docId}-comment-item-${index}`}>{item.comment}</span>
             </Link>
           </p>
         ))}

@@ -23,7 +23,9 @@ export default function UserProfile({ user }) {
       dispatch({ profile: user, photosCollection: photos, followerCount: user.followers.length });
     }
 
-    getProfileInfoAndPhotos();
+    if (user?.username) {
+      getProfileInfoAndPhotos();
+    }
   }, [user]);
 
   return (

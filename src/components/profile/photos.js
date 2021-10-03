@@ -55,5 +55,5 @@ export default function Photos({ photos }) {
 }
 
 Photos.propTypes = {
-  photos: PropTypes.array.isRequired
+  photos: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]).isRequired
 };

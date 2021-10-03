@@ -35,8 +35,8 @@ Post.propTypes = {
   content: PropTypes.shape({
     caption: PropTypes.string.isRequired,
     imageSrc: PropTypes.string.isRequired,
-    username: PropTypes.string.isRequired,
     docId: PropTypes.string.isRequired,
+    username: PropTypes.string.isRequired,
     userLikedPhoto: PropTypes.bool.isRequired,
     likes: PropTypes.array.isRequired,
     comments: PropTypes.array.isRequired,

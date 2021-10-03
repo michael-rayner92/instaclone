@@ -35,6 +35,7 @@ export default function SuggestedProfile({
         className="text-xs font-bold text-blue-medium"
         type="button"
         onClick={handleFollowUser}
+        data-testid={`follow-btn-${profileDocId}`}
       >
         Follow
       </button>

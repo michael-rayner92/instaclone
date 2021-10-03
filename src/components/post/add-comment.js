@@ -33,6 +33,7 @@ export default function AddComment({ docId, comments, setComments, commentInput 
         onSubmit={event =>
           comment.length >= 1 ? handleSubmitComment(event) : event.preventDefault()
         }
+        data-testid={`add-comment-submit-${docId}`}
       >
         <input
           aria-label="Add a comment"
@@ -44,6 +45,7 @@ export default function AddComment({ docId, comments, setComments, commentInput 
           value={comment}
           onChange={({ target }) => setComment(target.value)}
           ref={commentInput}
+          data-testid={`add-comment-${docId}`}
         />
         <button
           className={`text-sm font-bold text-blue-medium ${!comment && 'opacity-25'}`}
