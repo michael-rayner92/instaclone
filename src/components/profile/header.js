@@ -63,6 +63,7 @@ export default function Header({
             <button
               className="bg-blue-medium font-bold text-sm rounded text-white w-20 h-8"
               type="button"
+              data-testid="toggle-follow-btn"
               onClick={handleToggleFollow}
               onKeyDown={event => {
                 if (event.key === 'Enter') {

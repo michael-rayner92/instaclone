@@ -1,5 +1,12 @@
 {
-  "extends": ["react-app", "react-app/jest", "airbnb", "prettier", "plugin:jsx-a11y/recommended"],
+  "extends": [
+    "react-app",
+    "react-app/jest",
+    "plugin:cypress/recommended",
+    "airbnb",
+    "prettier",
+    "plugin:jsx-a11y/recommended"
+  ],
   "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 8,

@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
+import useUser from '../../hooks/use-user';
 import FirebaseContext from '../../context/firebase';
 import UserContext from '../../context/user';
 
@@ -7,13 +8,14 @@ export default function AddComment({ docId, comments, setComments, commentInput 
   const [comment, setComment] = useState('');
   const { firebase, FieldValue } = useContext(FirebaseContext);
   const {
-    user: { displayName }
+    user: { uid }
   } = useContext(UserContext);
+  const { user } = useUser(uid);
 
   const handleSubmitComment = event => {
     event.preventDefault();
 
-    setComments([...comments, { displayName, comment }]);
+    setComments([...comments, { displayName: user.username, comment }]);
     setComment('');
 
     return firebase
@@ -21,7 +23,7 @@ export default function AddComment({ docId, comments, setComments, commentInput 
       .collection('photos')
       .doc(docId)
       .update({
-        comments: FieldValue.arrayUnion({ displayName, comment })
+        comments: FieldValue.arrayUnion({ displayName: user.username, comment })
       });
   };
 
